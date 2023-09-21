@@ -16,7 +16,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class CustomUserDetailService implements UserDetailsService {
-    
+
     private final EmployeesMapper mapper;
 
     @Override
