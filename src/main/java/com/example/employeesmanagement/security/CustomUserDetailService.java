@@ -1,7 +1,7 @@
 package com.example.employeesmanagement.security;
 
 import com.example.employeesmanagement.Dto.Employees;
-import com.example.employeesmanagement.mapper.EmployeesMapper;
+import com.example.employeesmanagement.mapper.employees.EmployeesMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -16,7 +16,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class CustomUserDetailService implements UserDetailsService {
-    
+
     private final EmployeesMapper mapper;
 
     @Override
