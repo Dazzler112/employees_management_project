@@ -24,12 +24,12 @@ public class SecurityConfig {
         http.csrf().disable();
 
         http.formLogin()
-                .loginPage("")
-                .defaultSuccessUrl("");
+                .loginPage("/employees/login")
+                .defaultSuccessUrl("/");
 
         http.logout()
-                .logoutUrl("")
-                .logoutSuccessUrl("/");
+                .logoutUrl("/");
+//                .logoutSuccessUrl("/employees/login");
 
         return http.build();
 
