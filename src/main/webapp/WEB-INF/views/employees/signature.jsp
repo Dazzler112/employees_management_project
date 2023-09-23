@@ -81,7 +81,7 @@
                 </div>
                 <div class="sign-column">
                     <div>
-                        <span style="margin-right: 35px;">휴대폰번호 *</span>
+                        <span style="margin-right: 35px;">휴대폰번호 </span>
                     </div>
                     <div style="display: flex;">
                         <input type="hidden" id="totalphone-num" name="phoneNumber" value="${employees.phoneNumber}">
