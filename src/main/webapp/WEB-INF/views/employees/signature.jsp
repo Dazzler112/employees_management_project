@@ -29,7 +29,7 @@
             <div style="margin: 40px 0px 40px 0px; display: flex; justify-content: center;">
                 <h1>멤버 생성</h1>
             </div>
-            <form method="post" id="signup-form">
+            <form method="post" id="signup-form" enctype="multipart/form-data">
                 <input type="text" name="employeeNumber" style="display: none;"> <%--랜덤으로 사번 줌 앞자리만 년도--%>
                 <input type="text" name="memberType" style="display: none;" value="일반"> <%--사원이냐 사이트 관리지냐 구분 전부 일반임--%>
                 <div>
@@ -38,6 +38,8 @@
                             <span style="margin-right: 50px;">아이디 *</span>
                         </div>
                         <input type="text" class="sign-input" id="input-id" name="id" value="${employees.id}" maxlength="20" placeholder="id">
+                        <input class="check-button" type="button" id="id-Confirm" value="중복확인">
+                        <div id="idcheck-blank" style="margin-left: 10px;"></div>
                     </div>
                 </div>
                 <div class="sign-column">
@@ -118,6 +120,17 @@
                         <input class="sign-input-ad" type="text" name="address" id="address">
                     </div>
                 </div>
+                <%--사진등록--%>
+                <div class="sign-column">
+                    <div style="margin-top: 10px; margin-right: 53px">
+                        <div>
+                            <span style="margin-right: 80px;">사 진</span>
+                        </div>
+                        <label for="fileInput" class="form-label"></label>
+                        <input class="form-control" type="file" name="files" id="fileInput" accept="image/*">
+                    </div>
+                </div>
+
                 <div class="member-sign-column">
                     <input disabled  type="submit" id="signup-submit" value="회원가입">
                 </div>
@@ -132,6 +145,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
         integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="/js/employees/register.js"></script>
 </body>
 </html>

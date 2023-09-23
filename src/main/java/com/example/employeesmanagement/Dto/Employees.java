@@ -19,4 +19,5 @@ public class Employees {
     private String memberType;
     private String address;
     private List<String> authority;
+    private List<String> fileName;
 }
