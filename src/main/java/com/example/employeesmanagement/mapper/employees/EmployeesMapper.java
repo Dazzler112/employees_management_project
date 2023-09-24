@@ -48,7 +48,7 @@ public interface EmployeesMapper {
                        , #{departmentNumber}
                        , #{position}
                        , #{email}
-                       , #{memberType}
+                       , #{authority[0]}
                        , #{address}
             """)
     @ResultMap("signMember")

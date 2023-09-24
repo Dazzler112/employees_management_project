@@ -7,6 +7,7 @@ import java.util.List;
 @Data
 public class Employees {
     private String id;
+    private Integer employeeNumber;
     private String password;
     private String name;
     private Integer old;
