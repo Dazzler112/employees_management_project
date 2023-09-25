@@ -50,6 +50,7 @@ public interface EmployeesMapper {
                        , #{email}
                        , #{authority[0]}
                        , #{address}
+                       )
             """)
     @ResultMap("signMember")
     Integer signUpInsert(Employees emp);
