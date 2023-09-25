@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
@@ -23,9 +24,11 @@ public class EmployeesController {
     }
 
     @PostMapping("signature")
-    public String signUpProcess(Employees emp, RedirectAttributes rttr){
+    public String signUpProcess(@RequestParam("fileList") MultipartFile[] files,
+                                Employees emp,
+                                RedirectAttributes rttr){
         try{
-            employeesService.signup(emp);
+            employeesService.signup(emp,files);
             rttr.addFlashAttribute("","멤버 생성 완료");
             System.out.println("생성이 완료됐습니다.");
             return "redirect:/employees/login";

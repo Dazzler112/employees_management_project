@@ -127,7 +127,7 @@
                             <span style="margin-right: 80px;">사 진</span>
                         </div>
                         <label for="fileInput" class="form-label"></label>
-                        <input class="form-control" type="file" name="files" id="fileInput" accept="image/*">
+                        <input class="form-control" type="file" name="fileList" id="fileInput" accept="image/*">
                     </div>
                 </div>
 
