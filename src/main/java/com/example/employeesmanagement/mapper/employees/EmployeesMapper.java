@@ -55,4 +55,18 @@ public interface EmployeesMapper {
     @ResultMap("signMember")
     Integer signUpInsert(Employees emp);
 
+    @Insert("""
+            INSERT INTO 
+            FileName
+                   (
+                     employee_id
+                   , fileName
+                   )
+            VALUES
+                   (
+                      #{id}
+                    , #{fileName}
+                   )
+            """)
+    Integer insertFileName(String id, String fileName);
 }
