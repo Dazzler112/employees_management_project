@@ -30,7 +30,7 @@
                 <h1>멤버 생성</h1>
             </div>
             <form method="post" id="signup-form" enctype="multipart/form-data">
-                <input type="text" name="employeeNumber" style="display: none;"> <%--랜덤으로 사번 줌 앞자리만 년도--%>
+                <input type="text" name="employeeNumber" style="display: none;" value="202311222">    <%--랜덤으로 사번 줌 앞자리만 년도--%>
                 <input type="text" name="authority" style="display: none;" value="user"> <%--사원이냐 사이트 관리지냐 구분 전부 일반임--%>
                 <div>
                     <div class="sign-column">
@@ -84,7 +84,7 @@
                         <span style="margin-right: 35px;">휴대폰번호 </span>
                     </div>
                     <div style="display: flex;">
-                        <input type="hidden" id="totalphone-num" name="phoneNumber" value="${employees.phoneNumber}">
+                        <input type="text" id="totalphone-num" name="phoneNumber" value="${employees.phoneNumber}">
                     </div>
                 </div>
                 <div class="sign-column">
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="member-sign-column">
-                    <input disabled  type="submit" id="signup-submit" value="회원가입">
+                    <input disabled type="submit" id="signup-submit" value="회원가입">
                 </div>
             </form>
         </div>

@@ -7,14 +7,14 @@ import java.util.List;
 @Data
 public class Employees {
     private String id;
-    private Integer employeeNumber;
+    private String employeeNumber;
     private String password;
     private String name;
-    private Integer old;
+    private String old;
     private String gender;
     private String phoneNumber;
     private String department;
-    private String depatementNumber;
+    private String departmentNumber;
     private String position;
     private String email;
     private String memberType;

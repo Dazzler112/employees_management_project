@@ -28,12 +28,12 @@ public class EmployeesController {
             employeesService.signup(emp);
             rttr.addFlashAttribute("","멤버 생성 완료");
             System.out.println("생성이 완료됐습니다.");
-            return "redirect:/login";
+            return "redirect:/employees/login";
         }catch (Exception e){
             e.printStackTrace();
             rttr.addFlashAttribute("employees",emp);
             System.out.println("생성에 실패했습니다.");
-            return "redirect:/";
+            return "redirect:/employees/signature";
         }
     }
 

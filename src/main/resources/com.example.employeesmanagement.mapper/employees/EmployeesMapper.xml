@@ -17,9 +17,10 @@
         <result property="email" column="email"></result>
         <result property="address" column="address"></result>
         <result property="department" column="department"></result>
-        <result property="depatementNumber" column="department_number"></result>
+        <result property="departmentNumber" column="department_number"></result>
         <result property="position" column="position"></result>
-        <collection property="authority" ofType="string">
+        <!--<result property="memberType" column="member_type"></result>-->
+        <collection property="authority" ofType="java.lang.String">
             <result column="member_type"></result>
         </collection>
     </resultMap>
@@ -37,8 +38,9 @@
         <result property="department" column="department"></result>
         <result property="departmentNumber" column="department_number"></result>
         <result property="position" column="position"></result>
-        <collection property="authority" ofType="string">
+        <collection property="authority" ofType="java.lang.String">
             <result column="member_type"></result>
         </collection>
     </resultMap>
+
 </mapper>
