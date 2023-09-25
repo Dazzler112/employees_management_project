@@ -14,7 +14,7 @@ public interface EmployeesMapper {
             TB_EMPLOYEES
             WHERE id = #{id}
             """)
-    @ResultMap("memberMap")
+//    @ResultMap("memberMap")
     Employees selectByEmployeesId(String id);
 
     @Insert("""
@@ -48,9 +48,10 @@ public interface EmployeesMapper {
                        , #{departmentNumber}
                        , #{position}
                        , #{email}
-                       , #{memberType}
+                       , #{authority[0]}
                        , #{address}
             """)
     @ResultMap("signMember")
     Integer signUpInsert(Employees emp);
+
 }

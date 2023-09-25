@@ -5,10 +5,10 @@ import com.example.employeesmanagement.service.employees.EmployeesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.Map;
 
 @Controller
 @RequestMapping("/employees/")
@@ -28,12 +28,18 @@ public class EmployeesController {
             employeesService.signup(emp);
             rttr.addFlashAttribute("","멤버 생성 완료");
             System.out.println("생성이 완료됐습니다.");
-            return "redirect:/login";
+            return "redirect:/employees/login";
         }catch (Exception e){
             e.printStackTrace();
             rttr.addFlashAttribute("employees",emp);
             System.out.println("생성에 실패했습니다.");
-            return "redirect:/";
+            return "redirect:/employees/signature";
         }
+    }
+
+    @GetMapping("checkId/{id}")
+    @ResponseBody
+    public Map<String,Object> checkId(@PathVariable("id") String id) {
+        return employeesService.checkId(id);
     }
 }

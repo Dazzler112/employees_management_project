@@ -5,7 +5,8 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.employeesmanagement.mapper.employees.EmployeesMapper">
-    <resultMap id="memberMap" type="com.example.employeesmanagement.Dto.Employees">
+
+    <resultMap type="com.example.employeesmanagement.Dto.Employees" id="memberMap">
         <id property="id" column="id"></id>
         <result property="employeeNumber" column="employee_number"></result>
         <result property="password" column="password"></result>
@@ -18,13 +19,13 @@
         <result property="department" column="department"></result>
         <result property="departmentNumber" column="department_number"></result>
         <result property="position" column="position"></result>
-        <result property="memberType" column="member_type"></result>
-        <collection property="authority" ofType="string">
+        <!--<result property="memberType" column="member_type"></result>-->
+        <collection property="authority" ofType="java.lang.String">
             <result column="member_type"></result>
         </collection>
     </resultMap>
 
-    <resultMap id="signMember" type="com.example.employeesmanagement.Dto.Employees">
+    <resultMap type="com.example.employeesmanagement.Dto.Employees" id="signMember">
         <id property="id" column="id"></id>
         <result property="employeeNumber" column="employee_number"></result>
         <result property="password" column="password"></result>
@@ -37,9 +38,9 @@
         <result property="department" column="department"></result>
         <result property="departmentNumber" column="department_number"></result>
         <result property="position" column="position"></result>
-        <result property="memberType" column="member_type"></result>
-        <collection property="authority" ofType="string">
+        <collection property="authority" ofType="java.lang.String">
             <result column="member_type"></result>
         </collection>
     </resultMap>
+
 </mapper>
