@@ -68,4 +68,26 @@ public class EmployeesServiceImpl implements EmployeesService{
         boolean available = (emp == null);
         return Map.of("available", emp == null);
     }
+
+    @Override
+    public Employees get(String id) {
+        return empMapper.selectByEmployeesId(id);
+    }
+
+    @Override
+    public boolean changeAccount(Employees emp, String oldPassword){
+
+        if(!emp.getPassword().isBlank()) {
+
+            String encryption = emp.getPassword();
+            emp.setPassword(passwordEncoder.encode(encryption));
+        }
+
+        Employees oldMember = empMapper.selectByEmployeesId(emp.getId());
+        int cnt = 0;
+        if(passwordEncoder.matches(oldPassword, oldMember.getPassword())){
+            cnt = empMapper.change(emp);
+        }
+        return cnt == 1;
+    }
 }

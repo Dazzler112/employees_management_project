@@ -1,10 +1,7 @@
 package com.example.employeesmanagement.mapper.employees;
 
 import com.example.employeesmanagement.Dto.Employees;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface EmployeesMapper {
@@ -14,7 +11,7 @@ public interface EmployeesMapper {
             TB_EMPLOYEES
             WHERE id = #{id}
             """)
-//    @ResultMap("memberMap")
+//    @ResultMap("empMemberMap")
     Employees selectByEmployeesId(String id);
 
     @Insert("""
@@ -34,6 +31,7 @@ public interface EmployeesMapper {
                        , email
                        , member_type
                        , address
+                       , is_active
                        )
             VALUES           
                        (
@@ -50,6 +48,7 @@ public interface EmployeesMapper {
                        , #{email}
                        , #{authority[0]}
                        , #{address}
+                       , #{isActive}
                        )
             """)
     @ResultMap("signMember")
@@ -69,4 +68,23 @@ public interface EmployeesMapper {
                    )
             """)
     Integer insertFileName(String id, String fileName);
+
+    @Update("""
+            <script>
+            UPDATE TB_EMPLOYEES
+            SET
+            <if test="password neq null and password neq ''">
+                password = #{password},
+            </if>
+              phone_number = #{phoneNumber}
+            , department = #{department}
+            , department_number = #{departmentNumber}
+            , position = #{position}
+            , email = #{email}
+            , address = #{address}
+            WHERE
+            id = #{id}
+            </script>
+            """)
+    int change(Employees emp);
 }

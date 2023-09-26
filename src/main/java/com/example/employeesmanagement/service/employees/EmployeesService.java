@@ -11,4 +11,7 @@ public interface EmployeesService {
 
     public Map<String, Object> checkId(String id);
 
+    public Employees get(String id);
+
+    public boolean changeAccount(Employees emp, String oldPassword);
 }
