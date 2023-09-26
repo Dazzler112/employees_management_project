@@ -1,5 +1,6 @@
 package com.example.employeesmanagement.controller.employees;
 
+import com.example.employeesmanagement.Dto.Employees;
 import com.example.employeesmanagement.service.employees.UserPageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -16,7 +17,8 @@ public class LoginController {
 
     @GetMapping("login")
     @PreAuthorize("isAnonymous()")
-    public String loginForm() {
+    public String loginForm(Employees emp) {
+        System.out.println("emp액티브 =>" + emp.getIsActive());
         return "employees/login";
     }
 }

@@ -16,6 +16,7 @@ import software.amazon.awssdk.services.s3.*;
 import software.amazon.awssdk.services.s3.model.*;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -75,7 +76,42 @@ public class EmployeesServiceImpl implements EmployeesService{
     }
 
     @Override
-    public boolean changeAccount(Employees emp, String oldPassword){
+    @Transactional()
+    public boolean changeAccount(Employees emp, String oldPassword, List<String> removeFileNames, MultipartFile[] addFile) throws Exception{
+
+        if(removeFileNames != null && !removeFileNames.isEmpty()) {
+            for (String fileName : removeFileNames) {
+                String objectKey = "employees_management/" + emp.getId() + "/" + fileName;
+                DeleteObjectRequest dor = DeleteObjectRequest
+                        .builder()
+                        .bucket(bucketName)
+                        .key(objectKey)
+                        .build();
+
+                s3.deleteObject(dor);
+
+                empMapper.deleteFileNameUpdate(emp.getId(), fileName);
+            }
+        }
+
+
+        for(MultipartFile file : addFile) {
+            if(file.getSize() > 0) {
+                empMapper.updateFileName(emp.getId(), file.getOriginalFilename());
+
+                String objectKey = "employees_management/" + emp.getId() + "/" + file.getOriginalFilename();
+                PutObjectRequest por = PutObjectRequest
+                        .builder()
+                        .acl(ObjectCannedACL.PUBLIC_READ)
+                        .bucket(bucketName)
+                        .key(objectKey)
+                        .build();
+
+                RequestBody rb = RequestBody.fromInputStream(file.getInputStream(), file.getSize());
+                s3.putObject(por, rb);
+            }
+        }
+
 
         if(!emp.getPassword().isBlank()) {
 

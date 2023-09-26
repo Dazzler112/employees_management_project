@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -49,7 +50,7 @@ public class EmployeesController {
     }
 
     @GetMapping("change")
-    @PreAuthorize("hasAnyAuthority('admin') or isAuthenticated()")
+    @PreAuthorize("hasAnyAuthority('admin') or (isAuthenticated() and (authentication.name eq #id))")
     public void changeForm(String id, Model model) {
         Employees emp = employeesService.get(id);
         model.addAttribute("emp",emp);
@@ -57,8 +58,12 @@ public class EmployeesController {
 
     @PostMapping("change")
     @PreAuthorize("isAuthenticated()")
-    public String change (Employees emp , RedirectAttributes rttr, String oldPassword) {
-        boolean ok = employeesService.changeAccount(emp, oldPassword);
+    public String change (@RequestParam(value = "removeFiles", required = false) List<String> removeFileNames
+                          ,@RequestParam(value = "listFiles", required = false) MultipartFile[] addFile
+                          , Employees emp
+                          , RedirectAttributes rttr
+                          , String oldPassword) throws Exception {
+        boolean ok = employeesService.changeAccount(emp, oldPassword, removeFileNames, addFile);
         if(ok) {
             rttr.addFlashAttribute("message", "변경 완료.");
             return "redirect:/employees/login";

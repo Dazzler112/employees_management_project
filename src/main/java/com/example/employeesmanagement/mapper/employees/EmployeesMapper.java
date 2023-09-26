@@ -87,4 +87,25 @@ public interface EmployeesMapper {
             </script>
             """)
     int change(Employees emp);
+
+    @Delete("""
+            DELETE FROM FileName
+            WHERE id = #{id}
+            AND fileName = #{fileName}
+            """)
+    void deleteFileNameUpdate(String id, String fileName);
+
+    @Insert("""
+            INSERT INTO 
+            FileName
+                    (
+                      id
+                    , fileName
+                    )
+            VALUES (
+                     #{id}
+                   , #{fileName}  
+                   )              
+            """)
+    Integer updateFileName(String id, String fileName);
 }
