@@ -34,25 +34,26 @@
 
 <main>
     <div class="main-container">
-        <form action="employees/" method="get" enctype="multipart/form-data">
+        <form action="/employees/{id}" method="get" enctype="multipart/form-data">
+            <input type="text" name="id" value="${getEmp.id}" style="display: none;">
         <div class="main-container_column">
             <div class="mb-3">
-                <c:forEach items="${.fileName }" var="photo">
+                <c:forEach items="${getEmp.fileName }" var="photo">
                     <div>
                         <label for="get-img" class="form-label"></label>
-                        <img id="get-img" class="img-fluid img-thumbnail form-control" src="${bucketUrl}/${.id}/${photo}" />
+                        <img id="get-img" class="img-fluid img-thumbnail form-control" src="${bucketUrl}/${getEmp.id}/${photo}" />
                     </div>
                 </c:forEach>
             </div>
             <div>
                 <div>
-                    ${.name}
+                    ${getEmp.name}
                 </div>
                 <div>
-                    ${.department}
+                    ${getEmp.department}
                 </div>
                 <div>
-                    ${.position}
+                    ${getEmp.position}
                 </div>
             </div>
         </div>

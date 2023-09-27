@@ -5,6 +5,7 @@ import com.example.employeesmanagement.mapper.employees.EmployeesMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -126,4 +127,13 @@ public class EmployeesServiceImpl implements EmployeesService{
         }
         return cnt == 1;
     }
+
+    @Override
+    public Employees getProcess(String id, Authentication authentication){
+
+        Employees emp = empMapper.getEmployeeId(id);
+
+        return emp;
+    }
+
 }
