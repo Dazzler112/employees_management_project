@@ -27,6 +27,8 @@ public class CustomUserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException(username + "해당 회원 조회불가");
         }
 
+//        boolean isActive = employees.getIsActive() == 1;
+
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
 
         for (String auth : employees.getAuthority()){
@@ -35,6 +37,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
         UserDetails user = User.builder()
                 .username(employees.getId())
+//                .disabled(!isActive)
                 .password(employees.getPassword())
                 .authorities(List.of())
                 .authorities(employees.getAuthority().stream().map(SimpleGrantedAuthority::new).toList())

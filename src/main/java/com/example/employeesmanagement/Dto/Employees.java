@@ -19,6 +19,7 @@ public class Employees {
     private String email;
     private String memberType;
     private String address;
+    private Integer isActive;
     private List<String> authority;
     private List<String> fileName;
 }

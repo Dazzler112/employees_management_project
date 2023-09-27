@@ -32,6 +32,7 @@
             <form method="post" id="signup-form" enctype="multipart/form-data">
                 <input type="text" name="employeeNumber" style="display: none;" value="202311222">    <%--랜덤으로 사번 줌 앞자리만 년도--%>
                 <input type="text" name="authority" style="display: none;" value="user"> <%--사원이냐 사이트 관리지냐 구분 전부 일반임--%>
+                <input type="text" style="display: none;" name="isActive" value="1">
                 <div>
                     <div class="sign-column">
                         <div>
@@ -127,7 +128,7 @@
                             <span style="margin-right: 80px;">사 진</span>
                         </div>
                         <label for="fileInput" class="form-label"></label>
-                        <input class="form-control" type="file" name="files" id="fileInput" accept="image/*">
+                        <input class="form-control" type="file" name="fileList" id="fileInput" accept="image/*">
                     </div>
                 </div>
 

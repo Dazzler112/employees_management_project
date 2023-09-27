@@ -6,20 +6,22 @@
 
 <mapper namespace="com.example.employeesmanagement.mapper.employees.EmployeesMapper">
 
-    <resultMap type="com.example.employeesmanagement.Dto.Employees" id="memberMap">
+    <resultMap type="com.example.employeesmanagement.Dto.Employees" id="empMemberMap">
         <id property="id" column="id"></id>
         <result property="employeeNumber" column="employee_number"></result>
         <result property="password" column="password"></result>
         <result property="name" column="name"></result>
-        <result property="gender" column="gender"></result>
         <result property="old" column="old"></result>
+        <result property="gender" column="gender"></result>
         <result property="phoneNumber" column="phone_number"></result>
-        <result property="email" column="email"></result>
-        <result property="address" column="address"></result>
         <result property="department" column="department"></result>
         <result property="departmentNumber" column="department_number"></result>
         <result property="position" column="position"></result>
+        <result property="email" column="email"></result>
+        <result property="email" column="email"></result>
         <!--<result property="memberType" column="member_type"></result>-->
+        <result property="address" column="address"></result>
+        <result property="isActive" column="is_active"></result>
         <collection property="authority" ofType="java.lang.String">
             <result column="member_type"></result>
         </collection>
@@ -30,14 +32,16 @@
         <result property="employeeNumber" column="employee_number"></result>
         <result property="password" column="password"></result>
         <result property="name" column="name"></result>
-        <result property="gender" column="gender"></result>
         <result property="old" column="old"></result>
+        <result property="gender" column="gender"></result>
         <result property="phoneNumber" column="phone_number"></result>
-        <result property="email" column="email"></result>
-        <result property="address" column="address"></result>
         <result property="department" column="department"></result>
         <result property="departmentNumber" column="department_number"></result>
         <result property="position" column="position"></result>
+        <result property="email" column="email"></result>
+        <!--<result property="memberType" column="member_type"></result>-->
+        <result property="address" column="address"></result>
+        <result property="isActive" column="is_active"></result>
         <collection property="authority" ofType="java.lang.String">
             <result column="member_type"></result>
         </collection>
