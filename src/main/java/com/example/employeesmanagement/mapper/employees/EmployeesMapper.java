@@ -11,7 +11,7 @@ public interface EmployeesMapper {
             TB_EMPLOYEES
             WHERE id = #{id}
             """)
-//    @ResultMap("empMemberMap")
+    @ResultMap("empMemberMap")
     Employees selectByEmployeesId(String id);
 
     @Insert("""
@@ -108,4 +108,19 @@ public interface EmployeesMapper {
                    )              
             """)
     Integer updateFileName(String id, String fileName);
+
+    @Select("""
+            SELECT 
+                    id
+                  , e.name
+                  , e.department
+                  , e.position
+                  , f.fileName
+            FROM
+            TB_EMPLOYEES e LEFT JOIN
+            FileName f ON e.id = f.employee_id
+            WHERE e.id = #{id}      
+            """)
+    @ResultMap("getMemberInfo")
+    Employees getEmployeeId(String id);
 }

@@ -25,7 +25,7 @@ public class SecurityConfig {
 
         http.formLogin()
                 .loginPage("/employees/login")
-                .defaultSuccessUrl("/employees/change");
+                .defaultSuccessUrl("/main");
 
         http.logout()
                 .logoutUrl("/");

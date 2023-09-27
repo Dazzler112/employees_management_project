@@ -5,6 +5,7 @@ import com.example.employeesmanagement.service.employees.EmployeesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -72,4 +73,16 @@ public class EmployeesController {
             return "redirect:/employees/change?id=" + emp.getId();
         }
     }
+
+    @GetMapping("{id}")
+    @PreAuthorize("isAuthenticated()")
+    public String getMember(@PathVariable("id") String id , Model model, Authentication authentication) {
+        Employees emp = employeesService.getProcess(id,authentication);
+
+        model.addAttribute("getEmp",emp);
+
+        return "/main";
+    }
+
+
 }
