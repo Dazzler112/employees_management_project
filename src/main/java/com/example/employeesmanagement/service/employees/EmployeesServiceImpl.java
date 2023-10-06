@@ -128,12 +128,12 @@ public class EmployeesServiceImpl implements EmployeesService{
         return cnt == 1;
     }
 
-    @Override
-    public Employees getProcess(String id, Authentication authentication){
-
-        Employees emp = empMapper.getEmployeeId(id);
-
-        return emp;
-    }
+//    @Override
+//    public Employees getProcess(String id, Authentication authentication){
+//
+//        Employees emp = empMapper.getEmployeeId(id);
+//
+//        return emp;
+//    }
 
 }

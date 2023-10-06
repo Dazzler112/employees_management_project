@@ -27,7 +27,7 @@ public class CustomUserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException(username + "해당 회원 조회불가");
         }
 
-        boolean isActive = employees.getIsActive() == 1;
+//        boolean isActive = employees.getIsActive() == 1;
 
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
 
@@ -37,12 +37,13 @@ public class CustomUserDetailService implements UserDetailsService {
 
         UserDetails user = User.builder()
                 .username(employees.getId())
-                .disabled(!isActive)
+//                .disabled(!isActive)
                 .password(employees.getPassword())
                 .authorities(List.of())
                 .authorities(employees.getAuthority().stream().map(SimpleGrantedAuthority::new).toList())
                 .build();
 
+        System.out.println("유저ID => " + user.getUsername());
         return user;
     }
 }
