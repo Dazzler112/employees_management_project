@@ -74,15 +74,15 @@ public class EmployeesController {
         }
     }
 
-    @GetMapping("{id}")
-    @PreAuthorize("isAuthenticated()")
-    public String getMember(@PathVariable("id") String id , Model model, Authentication authentication) {
-        Employees emp = employeesService.getProcess(id,authentication);
-
-        model.addAttribute("getEmp",emp);
-
-        return "/main";
-    }
+//    @GetMapping("{id}")
+//    @PreAuthorize("isAuthenticated()")
+//    public String getMember(@PathVariable("id") String id , Model model, Authentication authentication) {
+//        Employees emp = employeesService.getProcess(id,authentication);
+//
+//        model.addAttribute("getEmp",emp);
+//
+//        return "/main";
+//    }
 
 
 }

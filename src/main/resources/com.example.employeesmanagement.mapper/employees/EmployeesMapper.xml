@@ -3,10 +3,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.example.employeesmanagement.mapper.employees.EmployeesMapper">
 
-    <resultMap type="com.example.employeesmanagement.Dto.Employees" id="empMemberMap">
+    <!--<resultMap type="com.example.employeesmanagement.Dto.Employees" id="empMemberMap">
         <id property="id" column="id"></id>
         <result property="employeeNumber" column="employee_number"></result>
         <result property="password" column="password"></result>
@@ -19,13 +18,10 @@
         <result property="position" column="position"></result>
         <result property="email" column="email"></result>
         <result property="email" column="email"></result>
-        <!--<result property="memberType" column="member_type"></result>-->
+        <result property="memberType" column="member_type"></result>
         <result property="address" column="address"></result>
         <result property="isActive" column="is_active"></result>
-        <collection property="authority" ofType="java.lang.String">
-            <result column="member_type"></result>
-        </collection>
-    </resultMap>
+    </resultMap>-->
 
     <resultMap type="com.example.employeesmanagement.Dto.Employees" id="signMember">
         <id property="id" column="id"></id>
@@ -47,15 +43,15 @@
         </collection>
     </resultMap>
 
-    <resultMap type="com.example.employeesmanagement.Dto.Employees" id="getMemberInfo">
-        <id property="id" column="id"></id>
-        <result property="name" column="name"></result>
-        <result property="department" column="department"></result>
-        <result property="position" column="position"></result>
-        <!--<result property="memberType" column="member_type"></result>-->
-        <collection property="fileName" ofType="String">
-            <result column="fileName"></result>
-        </collection>
-    </resultMap>
+<!--    <resultMap type="com.example.employeesmanagement.Dto.Employees" id="getMemberInfo">-->
+<!--        <id property="id" column="id"></id>-->
+<!--        <result property="name" column="name"></result>-->
+<!--        <result property="department" column="department"></result>-->
+<!--        <result property="position" column="position"></result>-->
+<!--        &lt;!&ndash;<result property="memberType" column="member_type"></result>&ndash;&gt;-->
+<!--        <collection property="fileName" ofType="String">-->
+<!--            <result column="fileName"></result>-->
+<!--        </collection>-->
+<!--    </resultMap>-->
 
 </mapper>

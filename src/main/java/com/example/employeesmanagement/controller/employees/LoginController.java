@@ -19,6 +19,7 @@ public class LoginController {
     @PreAuthorize("isAnonymous()")
     public String loginForm(Employees emp) {
         System.out.println("emp액티브 =>" + emp.getIsActive());
+
         return "employees/login";
     }
 }

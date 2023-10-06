@@ -17,5 +17,5 @@ public interface EmployeesService {
 
     public boolean changeAccount(Employees emp, String oldPassword, List<String> removeFileNames, MultipartFile[] addFile) throws Exception;
 
-    public Employees getProcess(String id, Authentication authentication);
+//    public Employees getProcess(String id, Authentication authentication);
 }
